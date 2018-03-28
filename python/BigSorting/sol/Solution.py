@@ -66,13 +66,23 @@ def solver():
     n = int(input())
     _list, _list_aux = [0] * n, [0] * n
     for i in range(0, n):
-        _list[i] = int(input().strip())
-    #mergesort(_list, _list_aux, 0, len(_list) - 1)
-    _list =sorted(map(str, sorted(_list)), key=len)
+        _list[i] = input().strip()  # int()
+    # mergesort(_list, _list_aux, 0, len(_list) - 1)
+    _list = sorted(map(str, sorted(_list)), key=len)
     print("\n".join([str(x) for x in _list]))
 
 
-solver()
+def solver_2():
+    from collections import defaultdict
+    n = int(input())
+    _d = defaultdict(list)
+    for i in range(0, n):
+        num = input().strip()
+        _d[len(num)].append(num)
+    print("\n".join([str(v) for k in sorted(_d) for v in sorted(_d[k])]))
+
+
+solver_2()
 
 if __name__ == '__main__':
     pass
